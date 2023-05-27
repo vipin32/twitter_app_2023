@@ -45,6 +45,7 @@ gem "bootsnap", require: false
 gem 'bootstrap'
 gem 'devise'
 
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -76,4 +77,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 5.0'
 end

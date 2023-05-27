@@ -1,11 +1,36 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
 <% if user_signed_in? %>
  Time : <%= Time.now.to_date  %>
+    <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
+        <div class="form-group">
+            <%= f.label :body %><br/>
+            <%= f.text_field :body, class: "form-control" %>
+        </div>
+
+        <p>
+            <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </p>
+    <% end %>
+
 
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+
+Tweets 
+<ul>
+
+<% Tweet.find_each do |tweet|%>
+    <li><%= tweet.body %></li>
+<% end %>
+</ul>
+
 
 <% else %>
 
 <h1>Home#index</h1>
+
 <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
 <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary" %>
 
