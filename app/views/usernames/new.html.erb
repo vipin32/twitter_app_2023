@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-sm-6 offset-sm-3">
+      <h2>Set your Username</h2>
+
+      <%= form_with model: current_user, url: username_path(current_user) do |f| %>
+
+        <div class="field mb-3">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Set Username", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
