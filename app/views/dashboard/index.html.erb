@@ -1,0 +1,26 @@
+<div class="container">
+
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+
+
+    <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
+        <div class="form-group">
+            <%= f.label :body %><br/>
+            <%= f.text_field :body, class: "form-control" %>
+        </div>
+
+        <p>
+            <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </p>
+    <% end %>
+
+    Tweets 
+    <ul>
+
+    <% Tweet.find_each do |tweet|%>
+        <li><%= tweet.body %></li>
+    <% end %>
+    </ul>   
+</div>

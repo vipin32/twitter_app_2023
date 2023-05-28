@@ -4,10 +4,10 @@ class TweetsController < ApplicationController
 
         if @tweet.save
             flash[:notice] = "Tweet saved successfully"
-            redirect_to root_path
+            redirect_to dashboard_path
         else
             flash[:notice] = "Tweet did not saved successfully"
-            redirect_to root_path
+            redirect_to dashboard_path
         end
     end
 

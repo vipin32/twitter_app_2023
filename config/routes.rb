@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/home/index', to: 'home#index'
 
   resources :tweets, only: :create
+  
+  get '/dashboard', to: 'dashboard#index'
 
 end
 
