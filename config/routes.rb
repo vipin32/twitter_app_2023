@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  get '/home/index', to: 'home#index'
+  # get '/home/index', to: 'home#index'
 
   resources :tweets, only: :create
   
