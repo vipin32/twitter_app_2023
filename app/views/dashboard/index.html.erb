@@ -1,24 +1,77 @@
-<div class="container">
 
+<div class="container py-2">
     
-    <%= render "shared/messages" %>
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
 
-    <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
-        <div class="form-group">
-            <%= f.label :body %><br/>
-            <%= f.text_field :body, class: "form-control" %>
+    <div class="row">
+        <aside class="col side-navbar">
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "twitter.png", width: "32" %></span>
+            <% end %>
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <div class="px-3 py-2 rounded-pill">
+                    <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "home.png", width: "32" %> Home</span>
+                </div>
+            <% end %>
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <div class="px-3 py-2 rounded-pill">
+                    <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "home.png", width: "32" %> Notifications</span>
+                </div>
+            <% end %>
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <div class="px-3 py-2 rounded-pill">
+                    <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "home.png", width: "32" %> Messages</span>
+                </div>
+            <% end %>
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <div class="px-3 py-2 rounded-pill">
+                    <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "home.png", width: "32" %> Bookmarks</span>
+                </div>
+            <% end %>
+
+            <%= link_to root_path, class: "d-flex align-items-center fs-4 mb-3" do %>
+                <div class="px-3 py-2 rounded-pill">
+                    <span class="me-4 position-relative" style="bottom: 3x;"><%= image_tag "home.png", width: "32" %> Profile</span>
+                </div>
+            <% end %>
+
+          
+
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        </aside>
+
+        <div class="col">
+            <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
+                <div class="form-group">
+                    <%= f.label :body %><br/>
+                    <%= f.text_field :body, class: "form-control" %>
+                </div>
+
+                <p>
+                    <%= f.submit 'Create', class: 'btn btn-primary' %>
+                </p>
+            <% end %>
+
+        
+            <ul>
+
+            <% Tweet.find_each do |tweet|%>
+                <li><%= tweet.body %></li>
+            <% end %>
+            </ul> 
         </div>
 
-        <p>
-            <%= f.submit 'Create', class: 'btn btn-primary' %>
-        </p>
-    <% end %>
+        <div class="col">
+            Column 3
+        </div>
 
-    Tweets 
-    <ul>
-
-    <% Tweet.find_each do |tweet|%>
-        <li><%= tweet.body %></li>
-    <% end %>
-    </ul>   
+    </div>
+  
 </div>

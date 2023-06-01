@@ -1,0 +1,11 @@
+body{
+    background-color: red;
+}
+
+aside.side-navbar{
+    a{
+        div:hover{
+            background-color: grey;
+        }
+    }
+}
