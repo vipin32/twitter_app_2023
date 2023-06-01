@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
             flash[:notice] = "Tweet saved successfully"
             redirect_to dashboard_path
         else
-            flash[:notice] = "Tweet did not saved successfully"
+            flash[:danger] = "Tweet did not saved successfully"
             redirect_to dashboard_path
         end
     end

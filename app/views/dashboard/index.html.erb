@@ -1,9 +1,7 @@
 <div class="container">
 
-    <% if flash[:notice] %>
-        <%= flash[:notice] %>
-    <% end %>
-
+    
+    <%= render "shared/messages" %>
 
     <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
         <div class="form-group">
