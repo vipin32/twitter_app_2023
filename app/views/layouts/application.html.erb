@@ -12,6 +12,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <div class="container py-2">
+          <%= render 'shared/messages' %>
+          <div class="row">
+            
+            <%= render 'shared/side_navbar' %>
+
+            <%= yield %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <%= yield %>
+    <% end %>
   </body>
 </html>
