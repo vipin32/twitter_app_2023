@@ -1,22 +1,15 @@
 <div class="col-7">
-                
-    <%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
-        <div class="form-group">
-            <h5><%= link_to "Home", dashboard_path, class: "text-dark text-decoration-none" %></h5>
-            <%= f.text_area :body, placeholder: "What is happening?!" ,class: "form-control border-0" %>
-        </div>
-        <hr/>
-        <p class="d-flex justify-content-end">
-            <%= f.submit 'Tweet', class: 'btn btn-primary px-4 rounded-pill text-white font-weight-bold' %>
-        </p>
-    <% end %>
+    <div class="mb-3">
+        <h5><%= link_to "Home", dashboard_path, class: "text-dark text-decoration-none" %></h5>
+    </div>   
+    
+    <%= render "shared/tweet_form" %>
 
 
     <ul>
-
-    <% Tweet.find_each do |tweet|%>
-        <li><%= tweet.body %></li>
-    <% end %>
+        <% Tweet.find_each do |tweet|%>
+            <li><%= tweet.body %></li>
+        <% end %>
     </ul> 
 </div>
 

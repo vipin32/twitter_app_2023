@@ -1,0 +1,9 @@
+<%= form_with model: Tweet.new, url: tweets_path, data: { turbo:false } do |f| %>    
+    <div class="form-group">
+        <%= f.text_area :body, placeholder: "What is happening?!" ,class: "form-control border-0" %>
+    </div>
+    <hr/>
+    <p class="d-flex justify-content-end">
+        <%= f.submit 'Tweet', class: 'btn btn-primary px-4 rounded-pill text-white font-weight-bold' %>
+    </p>
+<% end %>

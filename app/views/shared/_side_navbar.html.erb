@@ -37,7 +37,27 @@
     <% end %>
 
     <div class="px-4">
-        <%= link_to "Tweet", tweets_path, class: "btn btn-primary rounded-pill px-5 text-white font-weight-bold" %>
+        <%= button_tag "Tweet", type:"button", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
+
     </div>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary my-4" %>
 </aside>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="close m-0 p-0" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/tweet_form" %>
+      </div>
+      
+    </div>
+  </div>
+</div>
