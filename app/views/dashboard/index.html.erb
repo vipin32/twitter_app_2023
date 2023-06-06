@@ -5,11 +5,8 @@
     
     <%= render "shared/tweet_form" %>
 
-    <% Tweet.order(created_at: :desc).each do |tweet|%>
-        
-        <%= render "tweets/tweet", tweet: tweet %>
-
-    <% end %>
+    <%= render Tweet.order(created_at: :desc) %>
+    
     
 </div>
 
