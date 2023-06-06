@@ -1,0 +1,11 @@
+.single_tweet{
+    
+
+    transition: background-color 0.3s;
+
+    &:hover{
+        background-color: lightgrey;
+    }
+    
+    
+}

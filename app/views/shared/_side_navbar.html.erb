@@ -38,9 +38,12 @@
 
     <div class="px-4">
         <%= button_tag "Tweet", type:"button", class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
+    </div>
+
+    <div class="px-4">
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger my-4" %>
 
     </div>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary my-4" %>
 </aside>
 
 

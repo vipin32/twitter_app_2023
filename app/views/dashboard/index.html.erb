@@ -5,12 +5,12 @@
     
     <%= render "shared/tweet_form" %>
 
+    <% Tweet.order(created_at: :desc).each do |tweet|%>
+        
+        <%= render "tweets/tweet", tweet: tweet %>
 
-    <ul>
-        <% Tweet.find_each do |tweet|%>
-            <li><%= tweet.body %></li>
-        <% end %>
-    </ul> 
+    <% end %>
+    
 </div>
 
 <div class="col">
