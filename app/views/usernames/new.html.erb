@@ -9,6 +9,11 @@
           <%= f.text_field :username, autofocus: true, class: "form-control" %>
         </div>
 
+        <div class="field mb-3">
+          <%= f.label :display_name %><br />
+          <%= f.text_field :display_name, class: "form-control" %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Set Username", class: "btn btn-primary" %>
         </div>
